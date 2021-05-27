@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>TPL Social Equity + LOS</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://tpl-low-income-los-scenerio.glitch.me/" />
+    <meta
+      name="description"
+      content="A simple map to examine Trust for Public Land's social equity factors with LOS data"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="TPL Social Equity + LOS!" />
+    <meta property="og:url" content="https://tpl-equity-los-scenerio.glitch.me/" />
+    <meta
+      property="og:description"
+      content="A simple map to examine Trust for Public Land's social equity factors with LOS data"
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
+    />
+    <meta name="twitter:card" content="A simple map to examine Trust for Public social equity factors with LOS data" />
+    
+    <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css" />
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="https://js.arcgis.com/4.19/"></script>
+    <!-- Import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+     <div id="viewDiv"></div>
+    <div id="scenario-container">
+      <fieldset>
+        <legend>
+          Select a scenario
+        </legend>
+        <b>Income</b>
+        <div>
+          <input type="radio" id="scenario-lowest-income" name="map-scenario" value="TPL Lowest Income Neighborhoods" checked>
+          <label for="scenario-lowest-income">TPL Lowest Income Neighborhoods</label>
+        </div>
+        <div>
+          <input type="radio" id="scenario-li-los" name="map-scenario" value="Current LOS with TPL Lowest Income Overlay" >
+          <label for="scenario-li-los">Current LOS with TPL Lowest Income Overlay</label>
+        </div>
+        <div>
+          <input type="radio" id="scenario-li-los-cookie" name="map-scenario" value="Current LOS by TPL Lowest Income Cookie Cut" >
+          <label for="scenario-li-los-cookie">Current LOS by TPL Lowest Income Cookie Cut</label>
+        </div>
+        <b>Race</b>
+        <div>
+          <input type="radio" id="scenario-bipoc" name="map-scenario" value="TPL BIPOC Neighborhoods">
+          <label for="scenario-bipoc">TPL BIPOC Neighborhoods</label>
+        </div>
+        <div>
+          <input type="radio" id="scenario-bipoc-los" name="map-scenario" value="Current LOS with TPL BIPOC Neighborhood Overlay" >
+          <label for="scenario-bipoc-los">Current LOS with TPL BIPOC Neighborhood Overlay</label>
+        </div>
+        <div>
+          <input type="radio" id="scenario-bipoc-los-cookie" name="map-scenario" value="Current LOS by TPL BIPOC Neighborhood Cookie Cut" >
+          <label for="scenario-bipoc-los-cookie">Current LOS by TPL BIPOC Neighborhood Cookie Cut</label>
+        </div>
+      </fieldset>
+    </div>
+  </body>
+</html>
