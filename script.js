@@ -3,9 +3,9 @@ require([
   "esri/WebMap",
   "esri/widgets/Expand",
   "esri/widgets/Legend",
-  "esri/widgets/LayerList",
+  "esri/widgets/Compass",
   "esri/widgets/BasemapGallery"
-], function(MapView, WebMap, Expand, Legend, LayerList,BasemapGallery) {
+], function(MapView, WebMap, Expand, Legend, Compass, BasemapGallery) {
   
   const webmap = new WebMap({
     portalItem: {
@@ -17,6 +17,23 @@ require([
     map: webmap,
     container: "viewDiv"
   })
+
+  const compass = new Compass({
+    view: view
+  })
+  view.ui.add(compass, "top-left")
+
+  const basemaps = new BasemapGallery({
+    view: view,
+    container: document.createElement("div")
+  })
+  const basemapsExpand = new Expand({
+    view: view,
+    content: basemaps,
+    expandTooltip: "Basemap Gallery",
+    group: "widgets"
+  })
+  view.ui.add(basemapsExpand, "top-left")
   
   const legend = new Legend({
     view: view,
@@ -24,24 +41,21 @@ require([
   })
   const legendExpand = new Expand({
     view: view,
-    content: legend
+    content: legend,
+    expandTooltip: "Legend",
+    group: "widgets"
   })
   view.ui.add(legendExpand, "bottom-left")
-  
-  const basemaps = new BasemapGallery({
+
+  const selectExpand = new Expand({
     view: view,
-    container: document.createElement("div")
+    content: document.getElementById("scenario-container"),
+    expanded: true,
+    expandTooltip: "Scenarios",
+    group: "widgets"
   })
-  const basemapsExpand = new Expand({
-    view: view,
-    content: basemaps
-  })
-  view.ui.add(basemapsExpand, "top-left")
+  view.ui.add(selectExpand, "bottom-right")
   
-  // const layerList = new LayerList({
-  //   view: view,
-  // })
-  // view.ui.add(layerList)
   
 const mapScenarioInputs = document.querySelectorAll("input[type=radio][name='map-scenario']")
 mapScenarioInputs.forEach(radio => radio.addEventListener("change", () => {
